@@ -1,3 +1,13 @@
+.main {
+  background-color: var(--main-color);
+  ::ng-deep .mat-drawer-inner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    background-color: red;
+  }
+}
 .head {
   background-color: var(--text-color);
   color: var(--main-color);

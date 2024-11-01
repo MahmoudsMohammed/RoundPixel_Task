@@ -10,7 +10,6 @@ import { FilterComponent } from './components/flight-result/filter/filter.compon
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
 import { RouterLink } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     RouterLink,
     BrowserAnimationsModule,
-    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
