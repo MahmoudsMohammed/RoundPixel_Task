@@ -10,7 +10,7 @@ import { map, Observable } from 'rxjs';
 })
 export class FlightResultComponent {
   constructor(private flightService: flightService) {}
-  showFiller = false;
+  displayFilters: boolean = false;
   flightDetails$: Observable<AirItinerary[]> = this.flightService.flights$.pipe(
     map((data: flights) => data.airItineraries)
   );

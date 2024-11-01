@@ -7,7 +7,10 @@
     <div
       class="filter col-6 d-flex gap-2 align-items-center justify-content-end"
     >
-      <button class="border-0 p-2 rounded-2">
+      <button
+        class="border-0 p-2 rounded-2"
+        (click)="displayFilters = !displayFilters"
+      >
         <i class="fa-solid fa-filter"></i>
         Filters
       </button>
@@ -17,3 +20,4 @@
     <app-flight-card [flightDetails]="flightDetails"></app-flight-card>
   </ng-container>
 </div>
+<app-filter [sidebarVisible]="displayFilters"></app-filter>
