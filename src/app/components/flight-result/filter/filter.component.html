@@ -1,14 +1,32 @@
 <p-sidebar [(visible)]="sidebarVisible">
   <div class="side-head my-4 d-flex justify-content-between align-items-center">
     <img src="../../../../assets/logo.png" alt="" />
-    <button>
+    <button (click)="onToggle()">
       <i class="fa-solid fa-x"></i>
     </button>
   </div>
   <form [formGroup]="filtersForm" class="d-flex flex-column gap-5">
     <div class="airport">
       <label for="airport" class="form-label fw-medium">Airport Name</label>
-      <input type="text" class="form-control" id="airport" />
+      <input
+        type="text"
+        class="form-control"
+        id="airport"
+        formControlName="airport"
+        [ngClass]="{
+          'invalid-airport':
+            filtersForm.get('airport')?.invalid &&
+            filtersForm.get('airport')?.touched
+        }"
+      />
+      <span
+        class="hint"
+        *ngIf="
+          filtersForm.get('airport')?.invalid &&
+          filtersForm.get('airport')?.touched
+        "
+        >English Letters Only :)</span
+      >
     </div>
 
     <div class="range d-flex gap-2 flex-column">
@@ -52,5 +70,12 @@
         </div>
       </ng-container>
     </div>
+
+    <input
+      [disabled]="filtersForm.invalid"
+      type="submit"
+      value="Filter"
+      class="py-2"
+    />
   </form>
 </p-sidebar>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,10 +9,15 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 export class FilterComponent implements OnInit {
   @Input() sidebarVisible: boolean = true;
   @Input() airLines: string[] = [];
+  @Output() toggle: EventEmitter<boolean> = new EventEmitter<boolean>();
   filtersForm!: FormGroup;
 
   ngOnInit(): void {
     this.filtersForm = new FormGroup({
+      airport: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[A-Za-z]+$'),
+      ]),
       airLines: new FormArray([], Validators.required),
       rangeValues: new FormControl([200, 800], Validators.required),
     });
@@ -29,5 +34,10 @@ export class FilterComponent implements OnInit {
       const index = airLines.controls.findIndex((x) => x.value === input.value);
       airLines.removeAt(index);
     }
+  }
+
+  onToggle() {
+    this.sidebarVisible = false;
+    this.toggle.next(false);
   }
 }
