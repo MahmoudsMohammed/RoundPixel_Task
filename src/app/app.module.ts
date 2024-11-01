@@ -8,6 +8,9 @@ import { FlightResultComponent } from './components/flight-result/flight-result.
 import { SelectedFlightComponent } from './bonus/selected-flight/selected-flight.component';
 import { FilterComponent } from './components/flight-result/filter/filter.component';
 import { FlightCardComponent } from './components/flight-result/flight-card/flight-card.component';
+import { RouterLink } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { FlightCardComponent } from './components/flight-result/flight-card/flig
     FlightResultComponent,
     SelectedFlightComponent,
     FilterComponent,
-    FlightCardComponent
+    FlightCardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterLink,
+    BrowserAnimationsModule,
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
