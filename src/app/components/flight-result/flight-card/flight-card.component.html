@@ -1,27 +1,45 @@
-<div class="card" *ngFor="let flight of details">
-  <div class="agency">
-    <img [src]="flight.logo" alt="" class="logo" />
-    <div class="info">
-      <span>{{ flight.name }}</span
-      ><span> {{ flight.code }}-{{ flight.flightNum }} </span>
+<div class="container py-3 px-4 px-lg-0">
+  <div
+    class="flight-card row p-3 p-lg-4 rounded-2 mb-3 gap-4 gap-lg-0"
+    *ngFor="let flight of details"
+  >
+    <div
+      class="agency col-12 col-lg-3 d-flex align-items-center justify-content-between justify-content-lg-start gap-3"
+    >
+      <img [src]="flight.logo" alt="" class="logo" />
+      <div class="info d-flex flex-column gap-1">
+        <span>{{ flight.name }}</span
+        ><span> {{ flight.code }}-{{ flight.flightNum }} </span>
+      </div>
     </div>
-  </div>
-  <div class="flight">
-    <div class="from">
-      <span>{{ flight.deptCity }}</span
-      ><span>{{ flight.deptCity }}</span>
+    <div
+      class="flight col-12 col-lg-3 d-flex align-items-center text-center gap-3"
+    >
+      <div class="from d-flex flex-column">
+        <span>{{ flight.deptDate }}</span
+        ><span>{{ flight.deptCity }}</span>
+      </div>
+      <div class="road flex-grow-1"></div>
+      <div class="to d-flex flex-column">
+        <span>{{ flight.arrivalDate }}</span
+        ><span>{{ flight.landCity }}</span>
+      </div>
     </div>
-    <div class="to">
-      <span>{{ flight.arrivalDate }}</span
-      ><span>{{ flight.landCity }}</span>
+    <div
+      class="duration col-12 col-lg-3 d-flex justify-content-between justify-content-lg-center flex-lg-column text-center"
+    >
+      <span>{{ flight.durationHours }}h {{ flight.durationMinutes }}m</span
+      ><span>{{ flight.stops }}</span>
     </div>
-  </div>
-  <div class="duration">
-    <span>{{ flight.durationHours }}h {{ flight.durationMinutes }}m</span
-    ><span>{{ flight.stopsNum === 0 ? "Direct" : flight.stopsNum }}</span>
-  </div>
-  <div class="price">
-    <span>{{ flight.currencyCode }} {{ flight.amount }}</span
-    ><button class="">book now</button>
+    <div
+      class="price col-12 col-lg-3 d-flex gap-4 align-items-center justify-content-between"
+    >
+      <span class="amount fw-medium"
+        ><span class="currency">{{ flight.currencyCode }}</span
+        >{{ flight.amount }}</span
+      ><button class="py-2 rounded-2 text-capitalize">
+        book now
+      </button>
+    </div>
   </div>
 </div>

@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AirItinerary, flightDetails } from 'src/app/model/flight.model';
 
 @Component({
@@ -29,7 +23,7 @@ export class FlightCardComponent implements OnInit {
         landCity: '',
         durationHours: 0,
         durationMinutes: 0,
-        stopsNum: 0,
+        stops: '',
         amount: 0,
         currencyCode: '',
         flightNum: '',
@@ -55,8 +49,10 @@ export class FlightCardComponent implements OnInit {
       );
       this.details[i].durationMinutes =
         this.flightDetails[i].totalDuration % 60;
-      this.details[i].stopsNum =
-        this.flightDetails[i].allJourney.flights[0].stopsNum;
+      this.details[i].stops =
+        this.flightDetails[i].allJourney.flights[0].stopsNum === 0
+          ? 'Direct'
+          : `${this.flightDetails[i].allJourney.flights[0].stopsNum} Stop`;
       this.details[i].amount = this.flightDetails[i].itinTotalFare.amount;
       this.details[i].currencyCode =
         this.flightDetails[i].itinTotalFare.currencyCode;

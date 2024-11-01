@@ -210,7 +210,7 @@ export interface flightDetails {
   landCity: string;
   durationHours: number;
   durationMinutes: number;
-  stopsNum: number;
+  stops: string;
   amount: number;
   currencyCode: string;
   flightNum:string;

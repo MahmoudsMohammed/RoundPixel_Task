@@ -1,0 +1,30 @@
+.flight-card {
+  background-color: #fff;
+  color: var(--main-color);
+  text-transform: capitalize;
+  img {
+    width: calc(60rem / 16);
+    height: calc(60rem / 16);
+  }
+  span:nth-of-type(2) {
+    color: var(--sec-text-color);
+  }
+  .road {
+    height: 2px;
+    background-color: #eee;
+  }
+  button {
+    color: var(--text-color);
+    background-color: var(--sec-color);
+    border: none;
+    font-size: var(--x-small);
+    width: calc(150rem / 16);
+  }
+  .amount {
+    font-size: var(--large-font);
+    .currency {
+      color: var(--sec-text-color);
+      font-size: var(--x-small);
+    }
+  }
+}
