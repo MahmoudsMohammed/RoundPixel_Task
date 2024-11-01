@@ -11,7 +11,6 @@ export class FlightCardComponent implements OnInit {
   details: flightDetails[] = [];
 
   ngOnInit(): void {
-    console.log(this.flightDetails);
     for (let i = 0; i < this.flightDetails.length; i++) {
       this.details[i] = {
         logo: '',
@@ -57,7 +56,6 @@ export class FlightCardComponent implements OnInit {
       this.details[i].currencyCode =
         this.flightDetails[i].itinTotalFare.currencyCode;
     }
-    console.log(this.details);
   }
 
   getDate(date: string) {
