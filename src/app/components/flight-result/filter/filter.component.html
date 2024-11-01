@@ -1,4 +1,56 @@
 <p-sidebar [(visible)]="sidebarVisible">
-  <h3>Sidebar</h3>
-  <p>Lorem ipsum dolor sit amet...</p>
+  <div class="side-head my-4 d-flex justify-content-between align-items-center">
+    <img src="../../../../assets/logo.png" alt="" />
+    <button>
+      <i class="fa-solid fa-x"></i>
+    </button>
+  </div>
+  <form [formGroup]="filtersForm" class="d-flex flex-column gap-5">
+    <div class="airport">
+      <label for="airport" class="form-label fw-medium">Airport Name</label>
+      <input type="text" class="form-control" id="airport" />
+    </div>
+
+    <div class="range d-flex gap-2 flex-column">
+      <p class="fw-medium m-0">Price Range</p>
+      <div class="mb-2 d-flex align-items-center gap-2">
+        <div>
+          <span>KWD</span>
+          <span class="fw-medium">{{
+            filtersForm.get("rangeValues")?.value[0]
+          }}</span>
+        </div>
+        -
+        <div>
+          <span>KWD</span>
+          <span class="fw-medium">{{
+            filtersForm.get("rangeValues")?.value[1]
+          }}</span>
+        </div>
+      </div>
+      <p-slider
+        [min]="50"
+        [max]="1000"
+        formControlName="rangeValues"
+        [range]="true"
+        styleClass="w-14rem"
+      />
+    </div>
+
+    <div>
+      <p class="fw-medium">Airline</p>
+      <ng-container *ngFor="let airLine of airLines; index as i">
+        <div class="airline d-flex gap-2 align-items-center">
+          <input
+            type="checkbox"
+            [name]="airLine"
+            [id]="airLine"
+            [value]="airLine"
+            (change)="onChange($event)"
+          />
+          <label [for]="airLine">{{ airLine }}</label>
+        </div>
+      </ng-container>
+    </div>
+  </form>
 </p-sidebar>

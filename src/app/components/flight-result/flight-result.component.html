@@ -20,4 +20,9 @@
     <app-flight-card [flightDetails]="flightDetails"></app-flight-card>
   </ng-container>
 </div>
-<app-filter [sidebarVisible]="displayFilters"></app-filter>
+<ng-container *ngIf="FlightAirline$ | async as airLines">
+  <app-filter
+    [sidebarVisible]="displayFilters"
+    [airLines]="airLines"
+  ></app-filter>
+</ng-container>

@@ -1,0 +1,33 @@
+:host ::ng-deep .p-sidebar-header,
+:host ::ng-deep .p-sidebar-footer {
+  display: none;
+}
+.range {
+  div {
+    span:nth-of-type(odd) {
+      font-size: var(--x-small);
+    }
+    span:nth-of-type(even) {
+      font-size: var(--base-font);
+    }
+  }
+}
+.side-head {
+  img {
+    width: calc(30rem / 16);
+    height: calc(30rem / 16);
+  }
+  button {
+    width: calc(20rem / 16);
+    height: calc(20rem / 16);
+    border: none;
+    background-color: #ff0000;
+    color: var(--text-color);
+    font-size: var(--x-small);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+}

@@ -11,6 +11,8 @@ import { FlightCardComponent } from './components/flight-result/flight-card/flig
 import { RouterLink } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
+import { SliderModule } from 'primeng/slider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,9 @@ import { SidebarModule } from 'primeng/sidebar';
     RouterLink,
     BrowserAnimationsModule,
     SidebarModule,
+    ReactiveFormsModule,
+    SliderModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
