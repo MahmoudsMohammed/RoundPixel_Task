@@ -1,3 +1,19 @@
-<ng-container *ngIf="flightDetails$ | async as flightDetails">
-  <app-flight-card [flightDetails]="flightDetails"></app-flight-card>
-</ng-container>
+<div class="container py-3 px-4 px-lg-0">
+  <div class="head row rounded-2 p-3 mb-3">
+    <div class="flights col-6 d-flex gap-2 align-items-center">
+      <i class="fa-solid fa-plane-circle-check"></i>
+      <span>Flights List</span>
+    </div>
+    <div
+      class="filter col-6 d-flex gap-2 align-items-center justify-content-end"
+    >
+      <button class="border-0 p-2 rounded-2">
+        <i class="fa-solid fa-filter"></i>
+        Filters
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="flightDetails$ | async as flightDetails">
+    <app-flight-card [flightDetails]="flightDetails"></app-flight-card>
+  </ng-container>
+</div>

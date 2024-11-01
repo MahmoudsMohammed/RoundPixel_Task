@@ -27,4 +27,11 @@
       font-size: var(--x-small);
     }
   }
+  .details {
+    color: var(--sec-text-color);
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+  }
 }
