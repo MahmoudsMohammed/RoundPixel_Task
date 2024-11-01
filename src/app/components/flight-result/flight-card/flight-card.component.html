@@ -1,1 +1,27 @@
-<p>flight-card works!</p>
+<div class="card" *ngFor="let flight of details">
+  <div class="agency">
+    <img [src]="flight.logo" alt="" class="logo" />
+    <div class="info">
+      <span>{{ flight.name }}</span
+      ><span> {{ flight.code }}-{{ flight.flightNum }} </span>
+    </div>
+  </div>
+  <div class="flight">
+    <div class="from">
+      <span>{{ flight.deptCity }}</span
+      ><span>{{ flight.deptCity }}</span>
+    </div>
+    <div class="to">
+      <span>{{ flight.arrivalDate }}</span
+      ><span>{{ flight.landCity }}</span>
+    </div>
+  </div>
+  <div class="duration">
+    <span>{{ flight.durationHours }}h {{ flight.durationMinutes }}m</span
+    ><span>{{ flight.stopsNum === 0 ? "Direct" : flight.stopsNum }}</span>
+  </div>
+  <div class="price">
+    <span>{{ flight.currencyCode }} {{ flight.amount }}</span
+    ><button class="">book now</button>
+  </div>
+</div>

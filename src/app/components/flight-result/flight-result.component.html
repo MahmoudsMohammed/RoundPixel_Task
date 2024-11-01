@@ -1,1 +1,3 @@
-<button mat-raised-button>Basic</button>
+<ng-container *ngIf="flightDetails$ | async as flightDetails">
+  <app-flight-card [flightDetails]="flightDetails"></app-flight-card>
+</ng-container>
