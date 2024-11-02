@@ -10,10 +10,10 @@ import { Observable, filter, tap } from 'rxjs';
 })
 export class FlightResultComponent implements OnInit {
   constructor(private flightService: flightService) {}
+  loading = true;
   displayFilters: boolean = false;
   flightDetails$: Observable<AirItinerary[]> = this.flightService.flights$;
   FlightAirline$: Observable<string[]> = this.flightService.airLines$;
-  loading = true;
 
   ngOnInit(): void {
     setTimeout(() => {

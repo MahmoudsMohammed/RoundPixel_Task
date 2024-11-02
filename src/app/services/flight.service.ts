@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { AirItinerary, flights, flightsFilter } from '../model/flight.model';
 
 @Injectable({ providedIn: 'root' })
@@ -11,7 +11,6 @@ export class flightService {
   airLinesData: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   flights$ = this.flightsData.asObservable();
   airLines$ = this.airLinesData.asObservable();
-  flightsFilters!: flightsFilter;
 
   getFlightsData() {
     fetch('../../../assets/response.json')
