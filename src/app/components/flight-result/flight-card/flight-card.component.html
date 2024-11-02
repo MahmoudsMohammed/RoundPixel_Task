@@ -1,50 +1,45 @@
-<div
-    class="flight-card row p-3 p-lg-4 rounded-2 mb-3 gap-4 gap-lg-0"
-    *ngFor="let flight of details"
+<div class="flight-card row p-3 p-lg-4 rounded-2 mb-3 gap-4 gap-lg-0">
+  <div
+    class="agency col-12 col-lg-3 d-flex align-items-center justify-content-between justify-content-lg-start gap-3"
   >
-    <div
-      class="agency col-12 col-lg-3 d-flex align-items-center justify-content-between justify-content-lg-start gap-3"
-    >
-      <img [src]="flight.logo" alt="" class="logo" />
-      <div class="info d-flex flex-column gap-1">
-        <span>{{ flight.name }}</span
-        ><span> {{ flight.code }}-{{ flight.flightNum }} </span>
-      </div>
-    </div>
-    <div
-      class="flight col-12 col-lg-3 d-flex align-items-center text-center gap-3"
-    >
-      <div class="from d-flex flex-column">
-        <span>{{ flight.deptDate }}</span
-        ><span>{{ flight.deptCity }}</span>
-      </div>
-      <div class="road flex-grow-1"></div>
-      <div class="to d-flex flex-column">
-        <span>{{ flight.arrivalDate }}</span
-        ><span>{{ flight.landCity }}</span>
-      </div>
-    </div>
-    <div
-      class="duration col-12 col-lg-3 d-flex justify-content-between justify-content-lg-center flex-lg-column text-center"
-    >
-      <span>{{ flight.durationHours }}h {{ flight.durationMinutes }}m</span
-      ><span>{{ flight.stops }}</span>
-    </div>
-    <div
-      class="price col-12 col-lg-3 d-flex gap-4 align-items-center justify-content-between"
-    >
-      <span class="amount fw-medium"
-        ><span class="currency">{{ flight.currencyCode }}</span
-        >{{ flight.amount }}</span
-      ><button class="py-2 rounded-2 text-capitalize">book now</button>
-    </div>
-    <hr class="my-lg-3">
-    <div
-      class="details col-12 d-flex justify-content-between align-items-center"
-    >
-      <a href="" class=""
-        ><i class="fa-solid fa-circle-info"></i> Flight Details</a
-      >
-      <i class="fa-solid fa-share"></i>
+    <img [src]="details.logo" alt="" class="logo" />
+    <div class="info d-flex flex-column gap-1">
+      <span>{{ details.name }}</span
+      ><span> {{ details.code }}-{{ details.flightNum }} </span>
     </div>
   </div>
+  <div
+    class="flight col-12 col-lg-3 d-flex align-items-center text-center gap-3"
+  >
+    <div class="from d-flex flex-column">
+      <span>{{ details.deptDate }}</span
+      ><span>{{ details.deptCity }}</span>
+    </div>
+    <div class="road flex-grow-1"></div>
+    <div class="to d-flex flex-column">
+      <span>{{ details.arrivalDate }}</span
+      ><span>{{ details.landCity }}</span>
+    </div>
+  </div>
+  <div
+    class="duration col-12 col-lg-3 d-flex justify-content-between justify-content-lg-center flex-lg-column text-center"
+  >
+    <span>{{ details.durationHours }}h {{ details.durationMinutes }}m</span
+    ><span>{{ details.stops }}</span>
+  </div>
+  <div
+    class="price col-12 col-lg-3 d-flex gap-4 align-items-center justify-content-between"
+  >
+    <span class="amount fw-medium"
+      ><span class="currency">{{ details.currencyCode }}</span
+      >{{ details.amount }}</span
+    ><button class="py-2 rounded-2 text-capitalize">book now</button>
+  </div>
+  <hr class="my-lg-3" />
+  <div class="details col-12 d-flex justify-content-between align-items-center">
+    <a href="" class=""
+      ><i class="fa-solid fa-circle-info"></i> Flight Details</a
+    >
+    <i class="fa-solid fa-share"></i>
+  </div>
+</div>

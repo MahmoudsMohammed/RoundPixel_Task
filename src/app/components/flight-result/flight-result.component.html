@@ -17,7 +17,9 @@
     </div>
   </div>
   <ng-container *ngIf="flightDetails$ | async as flightDetails">
-    <app-flight-card [flightDetails]="flightDetails"></app-flight-card>
+    <ng-container *ngFor="let flight of flightDetails">
+      <app-flight-card [flightDetails]="flight"></app-flight-card>
+    </ng-container>
   </ng-container>
 </div>
 <ng-container *ngIf="FlightAirline$ | async as airLines">

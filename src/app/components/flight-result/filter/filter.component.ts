@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { flightService } from 'src/app/services/flight.service';
 
 @Component({
   selector: 'app-filter',
@@ -7,6 +8,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
+  constructor(private flightService: flightService) {}
   @Input() sidebarVisible: boolean = true;
   @Input() airLines: string[] = [];
   @Output() toggle: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -37,7 +39,11 @@ export class FilterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.filtersForm.value);
+    this.flightService.filterFlights(
+      this.filtersForm.value.airport,
+      this.filtersForm.value.airLines,
+      this.filtersForm.value.rangeValues
+    );
     this.onToggle();
   }
 }

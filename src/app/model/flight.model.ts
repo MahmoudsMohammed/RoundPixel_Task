@@ -199,7 +199,6 @@ export interface SearchResultException {
   exceptionMessage: string;
 }
 
-
 export interface flightDetails {
   logo: string;
   name: string;
@@ -213,5 +212,11 @@ export interface flightDetails {
   stops: string;
   amount: number;
   currencyCode: string;
-  flightNum:string;
+  flightNum: string;
+}
+
+export interface flightsFilter {
+  rangeValues: number[];
+  airLines: string[];
+  airport: string;
 }

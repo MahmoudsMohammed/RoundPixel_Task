@@ -1,7 +1,7 @@
-import { AirItinerary, flights } from 'src/app/model/flight.model';
+import { AirItinerary } from 'src/app/model/flight.model';
 import { flightService } from './../../services/flight.service';
 import { Component } from '@angular/core';
-import { filter, map, Observable } from 'rxjs';
+import { Observable, filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-flight-result',
@@ -12,11 +12,10 @@ export class FlightResultComponent {
   constructor(private flightService: flightService) {}
   displayFilters: boolean = false;
   flightDetails$: Observable<AirItinerary[]> = this.flightService.flights$.pipe(
-    filter((data: any) => data?.airItineraries),
-    map((data: flights) => data.airItineraries)
+    tap((data: any) => console.log(data)),
+    filter((data) => data.length > 0)
   );
-  FlightAirline$: Observable<string[]> = this.flightService.flights$.pipe(
-    filter((data: any) => data?.airlines),
-    map((data: flights) => data.airlines)
+  FlightAirline$: Observable<string[]> = this.flightService.airLines$.pipe(
+    filter((data) => data.length > 0)
   );
 }
