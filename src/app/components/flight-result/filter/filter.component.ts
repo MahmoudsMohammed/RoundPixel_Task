@@ -14,15 +14,10 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.filtersForm = new FormGroup({
-      airport: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[A-Za-z]+$'),
-      ]),
-      airLines: new FormArray([], Validators.required),
-      rangeValues: new FormControl([200, 800], Validators.required),
+      airport: new FormControl('', [Validators.pattern('^[A-Za-z]+$')]),
+      airLines: new FormArray([]),
+      rangeValues: new FormControl([200, 800]),
     });
-
-    this.filtersForm.valueChanges.subscribe(console.log);
   }
 
   onChange(e: Event) {
@@ -39,5 +34,10 @@ export class FilterComponent implements OnInit {
   onToggle() {
     this.sidebarVisible = false;
     this.toggle.next(false);
+  }
+
+  onSubmit() {
+    console.log(this.filtersForm.value);
+    this.onToggle();
   }
 }

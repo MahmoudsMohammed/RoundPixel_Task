@@ -5,7 +5,11 @@
       <i class="fa-solid fa-x"></i>
     </button>
   </div>
-  <form [formGroup]="filtersForm" class="d-flex flex-column gap-5">
+  <form
+    [formGroup]="filtersForm"
+    class="d-flex flex-column gap-5"
+    (ngSubmit)="onSubmit()"
+  >
     <div class="airport">
       <label for="airport" class="form-label fw-medium">Airport Name</label>
       <input
