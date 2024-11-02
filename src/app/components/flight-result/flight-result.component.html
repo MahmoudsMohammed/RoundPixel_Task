@@ -1,4 +1,4 @@
-<div class="container py-3 px-4 px-lg-0">
+<!-- <div class="container py-3 px-4 px-lg-0">
   <div class="head row rounded-2 p-3 mb-3">
     <div class="flights col-6 d-flex gap-2 align-items-center">
       <i class="fa-solid fa-plane-circle-check"></i>
@@ -17,10 +17,21 @@
     </div>
   </div>
   <ng-container *ngIf="flightDetails$ | async as flightDetails">
-    <ng-container *ngFor="let flight of flightDetails">
-      <app-flight-card [flightDetails]="flight"></app-flight-card>
+    <ng-container *ngIf="flightDetails.length > 0; else noData">
+      <ng-container *ngFor="let flight of flightDetails">
+        <app-flight-card [flightDetails]="flight"></app-flight-card>
+      </ng-container>
     </ng-container>
   </ng-container>
+  <ng-template #noData>
+    <div class="d-flex justify-content-center mt-5">
+      <img
+        src="../../../assets/nodata.png"
+        alt=""
+        class="w-50 h-50 rounded-3"
+      />
+    </div>
+  </ng-template>
 </div>
 <ng-container *ngIf="FlightAirline$ | async as airLines">
   <app-filter
@@ -28,4 +39,6 @@
     [airLines]="airLines"
     (toggle)="displayFilters = false"
   ></app-filter>
-</ng-container>
+</ng-container> -->
+
+<app-loader></app-loader>

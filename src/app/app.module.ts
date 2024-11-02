@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
 import { SliderModule } from 'primeng/slider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SelectedFlightComponent,
     FilterComponent,
     FlightCardComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

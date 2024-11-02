@@ -11,11 +11,6 @@ import { Observable, filter, tap } from 'rxjs';
 export class FlightResultComponent {
   constructor(private flightService: flightService) {}
   displayFilters: boolean = false;
-  flightDetails$: Observable<AirItinerary[]> = this.flightService.flights$.pipe(
-    tap((data: any) => console.log(data)),
-    filter((data) => data.length > 0)
-  );
-  FlightAirline$: Observable<string[]> = this.flightService.airLines$.pipe(
-    filter((data) => data.length > 0)
-  );
+  flightDetails$: Observable<AirItinerary[]> = this.flightService.flights$;
+  FlightAirline$: Observable<string[]> = this.flightService.airLines$;
 }

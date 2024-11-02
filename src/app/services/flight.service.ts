@@ -61,7 +61,6 @@ export class flightService {
         );
       });
     }
-    console.log(data);
     this.flightsData.next(data);
   }
 }
